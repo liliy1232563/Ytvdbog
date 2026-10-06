@@ -1,4 +1,4 @@
-FROM python:3.14-rc-alpine3.20
+FROM python:3.12-alpine3.20
 
 WORKDIR /app
 
@@ -11,12 +11,8 @@ RUN apk add --no-cache \
     libffi-dev \
     openssl-dev \
     curl \
-    unzip
-
-RUN curl -fsSL https://deno.land/install.sh | sh
-
-ENV DENO_INSTALL=/root/.deno
-ENV PATH=$DENO_INSTALL/bin:$PATH
+    unzip \
+    deno
 
 RUN deno --version
 
